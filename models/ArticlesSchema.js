@@ -6,8 +6,8 @@ const articlesSchema = mongoose.Schema({
     userId: { type: String, require: true },
     autherName: { type: String, require: true },
     autherName: { type: String, require: true },
-    submissionTime: { require: true },
-    timeSinceSubmission: { require: true }
+    submissionTime: { type: String, require: true },
+    timeSinceSubmission: { type: String, require: true }
 })
 
 const ArticleModel = mongoose.model("articles", articlesSchema)
