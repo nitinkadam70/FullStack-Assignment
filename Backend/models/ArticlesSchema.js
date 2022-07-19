@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const articlesSchema = mongoose.Schema({
-    autherTitle: { type: String, require: true },
+    articleTitle: { type: String, require: true },
     status: { type: Boolean, default: false },
     userId: { type: String, require: true },
     autherName: { type: String, require: true },

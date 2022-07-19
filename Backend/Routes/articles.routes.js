@@ -12,7 +12,7 @@ articleRouter.get("/:userId/articles", async (req, res) => {
 
 //getting all submisions
 articleRouter.get("/articles", async (req, res) => {
-    let ariticle = await ArticleModel.find()
+    let ariticle = await ArticleModel.find({}, { _id, userId })
     return res.send(ariticle)
 })
 

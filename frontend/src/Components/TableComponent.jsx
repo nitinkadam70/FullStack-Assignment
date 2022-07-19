@@ -3,51 +3,47 @@ import {
     Table,
     Thead,
     Tbody,
-    Tfoot,
     Tr,
     Th,
     Td,
     TableCaption,
     TableContainer,
+    Input,
+    Checkbox,
 } from '@chakra-ui/react'
 
+import { v4 as uuid } from "uuid"
 
-const TableComponent = () => {
+
+
+const TableComponent = (props) => {
     return (
         <TableContainer>
             <Table variant='striped' colorScheme='teal'>
-                <TableCaption>Imperial to metric conversion factors</TableCaption>
                 <Thead>
                     <Tr>
-                        <Th>To convert</Th>
-                        <Th>into</Th>
-                        <Th isNumeric>multiply by</Th>
+                        <Th>Status</Th>
+                        <Th><Checkbox /></Th>
+                        <Th>Article TItle</Th>
+                        <Th>Remarks</Th>
+                        <Th>Submission Time</Th>
+                        <Th>Time Since Submissior</Th>
                     </Tr>
                 </Thead>
                 <Tbody>
-                    <Tr>
-                        <Td>inches</Td>
-                        <Td>millimetres (mm)</Td>
-                        <Td isNumeric>25.4</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>feet</Td>
-                        <Td>centimetres (cm)</Td>
-                        <Td isNumeric>30.48</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>yards</Td>
-                        <Td>metres (m)</Td>
-                        <Td isNumeric>0.91444</Td>
-                    </Tr>
+                    {
+                        props.data.map((item) => (
+                            <Tr key={uuid()}>
+                                <Td>{item.status}</Td>
+                                <Td><Checkbox /></Td>
+                                <Td>{item.articleTitle}</Td>
+                                <Td>{item.autherName}</Td>
+                                <Td>{item.submissionTime}</Td>
+                                <Td>{item.timeSinceSubmission}</Td>
+
+                            </Tr>))}
+
                 </Tbody>
-                <Tfoot>
-                    <Tr>
-                        <Th>To convert</Th>
-                        <Th>into</Th>
-                        <Th isNumeric>multiply by</Th>
-                    </Tr>
-                </Tfoot>
             </Table>
         </TableContainer>
     )
